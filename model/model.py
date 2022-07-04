@@ -14,14 +14,23 @@ def over_model(test_requests):
     print(results)
 
     tag_encoder = np.array(
-        ["keras", "matplotlib", "pandas", "scikitlearn", "tensorflow"]
+        [
+            "Contusion",
+            "Flu-related",
+            "General Weakness",
+            "Inflamation",
+            "Joint Pain",
+            "Shortness of Breath",
+            "Skeletal Muscle Injury",
+            "Stress",
+        ]
     )
 
     for i in range(len(results)):
         predicted_values = []
         print("Predicted labels:")
         for idx, val in enumerate(results[i]):
-            if val > 0.6:
+            if val > 0.08:
                 predicted_values.append(tag_encoder[idx])
                 print(predicted_values)
 
