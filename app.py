@@ -2,6 +2,8 @@
 # $env:FLASK_ENV = "development"  # ON debug mode
 # flask run
 
+# pip freeze > requirements.txt
+
 from flask import Flask, render_template, request, redirect
 
 import sys
