@@ -8,8 +8,9 @@ from flask import Flask, render_template, request, redirect
 
 import sys
 
-sys.path.append(".\model")
-import model
+sys.path.append(r"C:\Users\alexa\Documents\GitHub\flask_machine_learning\app\model")
+# sys.path.append(".\model")
+from model import models
 
 app = Flask(__name__)
 
@@ -25,34 +26,10 @@ def index():
         sentence_1 = result.get("sentence-1")
         data_list = []
         data_list.append(sentence_1)
-        sim_msg = model.over_model(data_list)
+        sim_msg = models.over_model(data_list)
         result["sim_msg"] = sim_msg
         return render_template("index.html", result=result)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
-# from flask import Flask, render_template, request, render_template_string
-
-# app = Flask(__name__)
-
-
-# @app.route("/")
-# def index():
-#     return render_template("index.html")
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-
-# @app.route("/home")
-# def home_page():
-#     return render_template("home.html")
-
-
-# @app.route("/about")
-# def about():
-#     return "About this project.."
+    app.run(port=8080, host="0.0.0.0")
