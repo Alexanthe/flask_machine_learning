@@ -1,7 +1,6 @@
 import pickle
 import os
 import numpy as np
-from model import preprocess
 
 
 class CustomModelPrediction(object):
