@@ -7,7 +7,6 @@ import pickle
 import os
 import numpy as np
 
-# from utility.preprocess import TextPreprocessor
 from model_prediction import CustomModelPrediction
 
 
