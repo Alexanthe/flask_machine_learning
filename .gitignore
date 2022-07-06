@@ -1,3 +1,6 @@
 /env
-/__pycache__
+/app/__pycache__
 /app/model/__pycache__
+/app/model/model1/__pycache__
+/app/model/model1/model2/__pycache__
+

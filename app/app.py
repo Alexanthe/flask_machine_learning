@@ -8,9 +8,11 @@ from flask import Flask, render_template, request, redirect
 
 import sys
 
-sys.path.append(r"C:\Users\alexa\Documents\GitHub\flask_machine_learning\app\model")
+# sys.path.append(r"C:\Users\alexa\Documents\GitHub\flask_machine_learning\app\model")
 # sys.path.append(".\model")
-from model import models
+import model.models as models
+
+# import preprocess
 
 app = Flask(__name__)
 

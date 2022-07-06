@@ -7,18 +7,18 @@ import pickle
 import os
 import numpy as np
 
-from model_prediction import CustomModelPrediction
+import model.model1.model_prediction as model_prediction
 
 
 def over_model(test_requests):
 
     import numpy as np
+    import os
 
     print(test_requests)
 
-    classifier = CustomModelPrediction.from_path(
-        r"C:\Users\alexa\Documents\GitHub\flask_machine_learning\app\model"
-    )
+    classifier = model_prediction.CustomModelPrediction.from_path(r".\app\model\model1")
+
     results = classifier.predict(test_requests)
     print(results)
 

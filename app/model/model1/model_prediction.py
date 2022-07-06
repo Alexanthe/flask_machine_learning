@@ -17,6 +17,8 @@ class CustomModelPrediction(object):
     def from_path(cls, model_dir):
         import tensorflow.keras as keras
 
+        print(cls)
+        print(model_dir)
         model = keras.models.load_model(os.path.join(model_dir, "keras_saved_model.h5"))
         with open(os.path.join(model_dir, "processor_state.pkl"), "rb") as f:
             processor = pickle.load(f)
