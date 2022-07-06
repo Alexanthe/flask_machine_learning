@@ -23,11 +23,11 @@
 		<body>
 			<div id="dispatcher-input-container">
 				<div id="dispatcher-title">Dispatcher Input (ACER System)</div>
-				<div id="dispatcher-input">
 						<form
 							action="{{ url_for('index', ) }}"
 							method="post"
 							name="contactFrm"
+                            id="dispatcher-input"
 						>
 							<input
 								type="text"
@@ -46,7 +46,6 @@
 								id="btn-predict"
 							/>
 						</form>
-				</div>
 			</div>
 
 			{% if result %}
@@ -59,8 +58,7 @@
 							</div>
                         </div>
 
-
-                        <div id="dispatcher-input" style="top:252px ;">
+                        <div id="dispatcher-input-two">
                             <div id="input-callerInfo">
                                 {{{result["sentence-1"]}}
                             </div>
