@@ -17,7 +17,7 @@ def over_model(test_requests):
 
     print(test_requests)
 
-    classifier = model_prediction.CustomModelPrediction.from_path(r".\app\model\model1")
+    classifier = model_prediction.CustomModelPrediction.from_path(r"./app/model/model1")
 
     results = classifier.predict(test_requests)
     print(results)
