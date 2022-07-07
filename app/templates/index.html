@@ -1,89 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<center>
-		<head>
-			<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-			<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" -->
-			<!-- integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-			<link
-				href="{{ url_for('static', filename='css/main.css') }}"
-				rel="stylesheet"
-			/>
-			<link
-				href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-				rel="stylesheet"
-			/>
-			<link
-				rel="stylesheet"
-				type="text/css"
-				href="//fonts.googleapis.com/css?family=Droid+Sans"
-			/>
-		</head>
+<center>
 
-		<body>
-			<div id="dispatcher-input-container">
-				<div id="dispatcher-title">Dispatcher Input (ACER System)</div>
-						<form
-							action="{{ url_for('index', ) }}"
-							method="post"
-							name="contactFrm"
-                            id="dispatcher-input"
-						>
-							<input
-								type="text"
-								required=""
-								placeholder="Symptoms"
-								value=""
-								name="sentence-1"
-								class="txt"
-								id="input-callerInfo"
-							/>
-							<input
-								type="submit"
-								value="Predict"
-								name="Sumbit"
-								class="txt2"
-								id="btn-predict"
-							/>
-						</form>
+	<head>
+		<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" -->
+		<!-- integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+		<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans" />
+	</head>
+
+	<body>
+		<div id="dispatcher-input-container">
+			<div id="dispatcher-title">Dispatcher Input (ACER System)</div>
+			<form action="{{ url_for('index', ) }}" method="post" name="contactFrm" id="dispatcher-input">
+				<input type="text" required="" placeholder="Symptoms" value="" name="sentence-1" class="txt"
+					id="input-callerInfo" />
+				<input type="submit" value="Predict" name="Sumbit" class="txt2" id="btn-predict" />
+			</form>
+		</div>
+
+		{% if result %}
+		<div id="predict-container">
+			<div id="dispatcher-title">Predictions Outcomes</div>
+
+			<div id="predict-outcome-container">
+				<div id="input-callerInfo">
+					{{result["sim_msg"]}}
+				</div>
 			</div>
 
-			{% if result %}
-				<div id="predict-container">
-					<div id="dispatcher-title">Predictions Outcomes</div>
-						
-                        <div id="predict-outcome-container">
-							<div id="input-callerInfo">
-								{{result["sim_msg"]}}
-							</div>
-                        </div>
-
-                        <div id="dispatcher-input-two">
-                            <div id="input-callerInfo">
-                                {{{result["sentence-1"]}}
-                            </div>
-                        </div>
-
-					</div>
+			<div id="dispatcher-input-two">
+				<div id="input-callerInfo">
+					{{result["sentence-1"]}}
 				</div>
-				{% endif %}
+			</div>
+
+		</div>
+		</div>
+		{% endif %}
 
 
-			<script
-				src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-				integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-				crossorigin="anonymous"
-			></script>
-			<script
-				src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-				integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-				crossorigin="anonymous"
-			></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-				integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-				crossorigin="anonymous"
-			></script>
-		</body>
-	</center>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"></script>
+	</body>
+</center>
+
 </html>
