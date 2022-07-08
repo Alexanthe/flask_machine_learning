@@ -39,7 +39,7 @@ def over_model(test_requests):
         predicted_values = []
         print("Predicted labels:")
         for idx, val in enumerate(results[i]):
-            if val > 0.6:
+            if val > 0.3:
                 predicted_values.append(tag_encoder[idx])
                 print(predicted_values)
 
