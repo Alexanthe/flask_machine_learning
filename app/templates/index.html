@@ -31,18 +31,18 @@
 		<div id="dispatcher-title">Prediction Outcome</div>
 
 		<div id="predict-outcome-container">
-			<div id="input-callerInfo" style="background-color: #FFF7AF">
+			<div id="input-callerInfo" style="background-color: #FFF7AF"> Predicted Symptoms: <br> 
 				{{result["sim_msg"]}}
 			</div>
 		</div>
 
 		<div id="dispatcher-input-two">
-			<div id="input-callerInfo">
+			<div id="input-callerInfo"> Log Entered: <br>
 				{{result["sentence-1"]}}
 			</div>
 		</div>
 
-		<button id="reset" onclick=" location.href='https://flask.apps.hackathon.tas.cnasg.net/' ;" ">Click me</button>
+		<button id="reset" onclick=" location.href='https://flask.apps.hackathon.tas.cnasg.net/' ;" ">Reset Form</button>
 		</div>
 		{% endif %}
 
